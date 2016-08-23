@@ -1,0 +1,34 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}Assembly.h"
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+#import "{{ prefix }}{{ module_info.name }}Router.h"
+
+@implementation {{ prefix }}{{ module_info.name }}Assembly
+
+- ({{ prefix }}{{ module_info.name }}ViewController *){{ module_info.name }}ViewController {
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}ViewController class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(viewModel)
+                                                    with:[self {{ module_info.name }}ViewModel]];
+                          }];
+}
+
+- ({{ prefix }}{{ module_info.name }}ViewModel *){{ module_info.name }}ViewModel {
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}ViewModel class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(router)
+                                                    with:[self {{ module_info.name }}Router]];
+                          }];
+}
+
+- ({{ prefix }}{{ module_info.name }}Router *){{ module_info.name }}Router {
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Router class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(transitionHandler)
+                                                    with:[self {{ module_info.name }}ViewController]];
+                          }];
+}
+
+@end
