@@ -1,10 +1,11 @@
 {% include 'header' %}
 
 #import "{{ prefix }}{{ module_info.name }}RouterProtocol.h"
-#import "RSBTransitionHandlerProtocol.h"
+
+@protocol RamblerViperModuleTransitionHandlerProtocol;
 
 @interface {{ prefix }}{{ module_info.name }}Router : NSObject <{{ prefix }}{{ module_info.name }}RouterProtocol>
 
-@property (nonatomic, weak) id<RSBTransitionHandlerProtocol> transitionHandler;
+@property (nonatomic, weak) id<RamblerViperModuleTransitionHandlerProtocol> transitionHandler;
 
 @end
