@@ -1,0 +1,22 @@
+# Template information section
+name: "mvz_mvvm_view"
+summary: "MVVM view with view model template"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+# View
+- {name: View.h, path: Code/view.h.liquid}
+- {name: View.m, path: Code/view.m.liquid}
+
+# ViewModel
+- {name: ViewModel/ViewModelProtocol.h, path: Code/ViewModel/viewmodel_protocol.h.liquid}
+- {name: ViewModel/ViewModel.h, path: Code/ViewModel/viewmodel.h.liquid}
+- {name: ViewModel/ViewModel.m, path: Code/ViewModel/viewmodel.m.liquid}
+
+# Template dependencies
+dependencies:
+- OCMock
