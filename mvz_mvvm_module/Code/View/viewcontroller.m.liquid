@@ -5,8 +5,22 @@
 
 @implementation {{ prefix }}{{ module_info.name }}ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];    
+#pragma mark - Lifecycle
+
+- (void)loadView {
+    [super loadView];
+    self.view = [[UIView alloc] init];
+}
+#pragma mark - Setters/Getters
+
+- (void)setViewModel:(id<{{ prefix }}{{ module_info.name }}ViewModelProtocol>)viewModel {
+    _viewModel = viewModel;
+    [self bindViewModel];
+}
+
+#pragma mark - ViewModel
+
+- (void)bindViewModel {
 }
 
 @end
