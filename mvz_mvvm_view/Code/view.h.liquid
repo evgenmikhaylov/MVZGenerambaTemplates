@@ -2,10 +2,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol {{ prefix }}{{ module_info.name }}ViewModelProtocol;
+@protocol {{ prefix }}{{ module_info.name }}ModelProtocol;
 
-@interface {{ prefix }}{{ module_info.name }}View : UIView
+@interface {{ prefix }}{{ module_info.name }} : UIView
 
-@property (nonatomic) id<{{ prefix }}{{ module_info.name }}ViewModelProtocol> viewModel;
+@property (nonatomic) id<{{ prefix }}{{ module_info.name }}ModelProtocol> viewModel;
 
 @end

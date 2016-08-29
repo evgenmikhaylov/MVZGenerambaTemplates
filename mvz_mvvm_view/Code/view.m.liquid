@@ -1,9 +1,9 @@
 {% include 'header' %}
 
-#import "{{ prefix }}{{ module_info.name }}View.h"
-#import "{{ prefix }}{{ module_info.name }}ViewModelProtocol.h"
+#import "{{ prefix }}{{ module_info.name }}.h"
+#import "{{ prefix }}{{ module_info.name }}ModelProtocol.h"
 
-@implementation {{ prefix }}{{ module_info.name }}View
+@implementation {{ prefix }}{{ module_info.name }}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -14,7 +14,7 @@
 
 #pragma mark - Setters/Getters
 
-- (void)setViewModel:(id<{{ prefix }}{{ module_info.name }}ViewModelProtocol>)viewModel {
+- (void)setViewModel:(id<{{ prefix }}{{ module_info.name }}ModelProtocol>)viewModel {
     _viewModel = viewModel;
     [self bindViewModel];
 }
