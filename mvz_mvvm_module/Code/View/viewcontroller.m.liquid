@@ -11,14 +11,13 @@
     [super loadView];
     self.view = [[UIView alloc] init];
 }
-#pragma mark - Setters/Getters
 
-- (void)setViewModel:(id<{{ prefix }}{{ module_info.name }}ViewModelProtocol>)viewModel {
-    _viewModel = viewModel;
+- (void)viewDidLoad {
+    [super viewDidLoad];
     [self bindViewModel];
 }
 
-#pragma mark - ViewModel
+#pragma mark - Binding
 
 - (void)bindViewModel {
 }
