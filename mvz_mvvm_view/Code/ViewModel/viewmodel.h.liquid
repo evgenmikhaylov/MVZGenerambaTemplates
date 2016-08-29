@@ -1,5 +1,6 @@
 {% include 'header' %}
 
+#import "{{ prefix }}{{ module_info.name }}ModelProtocol.h"
 #import <Foundation/Foundation.h>
 
 @interface {{ prefix }}{{ module_info.name }}Model : NSObject <{{ prefix }}{{ module_info.name }}ModelProtocol>
