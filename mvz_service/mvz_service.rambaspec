@@ -1,0 +1,18 @@
+# Template information section
+name: "mvz_service"
+summary: "Service"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+# ViewModel
+- {name: ServiceProtocol.h, path: Code/service_protocol.h.liquid}
+- {name: Service.h, path: Code/service.h.liquid}
+- {name: Service.m, path: Code/service.m.liquid}
+
+# Template dependencies
+dependencies:
+- OCMock
