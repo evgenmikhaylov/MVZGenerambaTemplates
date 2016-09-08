@@ -7,23 +7,25 @@ license: "MIT"
 
 # The declarations for code files
 code_files:
+
 # Assembly layer
 - {name: Assembly/Assembly.h, path: Code/Assembly/assembly.h.liquid}
 - {name: Assembly/Assembly.m, path: Code/Assembly/assembly.m.liquid}
-
-# View layer
-- {name: View/ViewController.h, path: Code/View/viewcontroller.h.liquid}
-- {name: View/ViewController.m, path: Code/View/viewcontroller.m.liquid}
-# ViewModel
-- {name: View/ViewModel/ViewModelProtocol.h, path: Code/View/ViewModel/viewmodel_protocol.h.liquid}
-- {name: View/ViewModel/ViewModel.h, path: Code/View/ViewModel/viewmodel.h.liquid}
-- {name: View/ViewModel/ViewModel.m, path: Code/View/ViewModel/viewmodel.m.liquid}
-- {name: View/Views}
 
 # Router layer
 - {name: Router/RouterProtocol.h, path: Code/Router/router_protocol.h.liquid}
 - {name: Router/Router.h, path: Code/Router/router.h.liquid}
 - {name: Router/Router.m, path: Code/Router/router.m.liquid}
+
+# View layer
+- {name: View/ViewController.h, path: Code/View/viewcontroller.h.liquid}
+- {name: View/ViewController.m, path: Code/View/viewcontroller.m.liquid}
+- {name: View/Views}
+
+# ViewModel
+- {name: ViewModel/ViewModelProtocol.h, path: Code/ViewModel/viewmodel_protocol.h.liquid}
+- {name: ViewModel/ViewModel.h, path: Code/ViewModel/viewmodel.h.liquid}
+- {name: ViewModel/ViewModel.m, path: Code/ViewModel/viewmodel.m.liquid}
 
 # Template dependencies
 dependencies:
