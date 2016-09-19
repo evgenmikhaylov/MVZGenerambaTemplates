@@ -6,6 +6,6 @@
 
 @interface {{ prefix }}{{ module_info.name }} : UIView
 
-@property (nonatomic) id<{{ prefix }}{{ module_info.name }}ModelProtocol> viewModel;
+@property (nonatomic, weak) id<{{ prefix }}{{ module_info.name }}ModelProtocol> viewModel;
 
 @end
