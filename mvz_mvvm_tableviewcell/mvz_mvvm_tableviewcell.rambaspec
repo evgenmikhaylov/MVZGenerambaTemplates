@@ -9,15 +9,15 @@ license: "MIT"
 code_files:
 
 # View
-- {name: TableViewCell.h, path: Code/cell.h.liquid}
-- {name: TableViewCell.m, path: Code/cell.m.liquid}
-- {name: TableViewCellItem.h, path: Code/cellitem.h.liquid}
-- {name: TableViewCellItem.m, path: Code/cellitem.m.liquid}
+- {name: .h, path: Code/cell.h.liquid}
+- {name: .m, path: Code/cell.m.liquid}
+- {name: Item.h, path: Code/cellitem.h.liquid}
+- {name: Item.m, path: Code/cellitem.m.liquid}
 
 # ViewModel
-- {name: CellModel/TableViewCellModelProtocol.h, path: Code/CellModel/cellmodel_protocol.h.liquid}
-- {name: CellModel/TableViewCellModel.h, path: Code/CellModel/cellmodel.h.liquid}
-- {name: CellModel/TableViewCellModel.m, path: Code/CellModel/cellmodel.m.liquid}
+- {name: CellModel/ModelProtocol.h, path: Code/CellModel/cellmodel_protocol.h.liquid}
+- {name: CellModel/Model.h, path: Code/CellModel/cellmodel.h.liquid}
+- {name: CellModel/Model.m, path: Code/CellModel/cellmodel.m.liquid}
 
 # Template dependencies
 dependencies:
