@@ -1,10 +1,9 @@
 {% include 'header' %}
 
-#import <RSBTableViewManager/RSBTableViewManager.h>
+#import "MVZTableViewCellItem.h"
+#import "{{ prefix }}{{ module_info.name }}ModelProtocol.h"
 
-@protocol {{ prefix }}{{ module_info.name }}ModelProtocol;
-
-@interface {{ prefix }}{{ module_info.name }}Item : RSBTableViewCellItem
+@interface {{ prefix }}{{ module_info.name }}Item : MVZTableViewCellItem
 
 @property (nonatomic) id<{{ prefix }}{{ module_info.name }}ModelProtocol> cellModel;
 

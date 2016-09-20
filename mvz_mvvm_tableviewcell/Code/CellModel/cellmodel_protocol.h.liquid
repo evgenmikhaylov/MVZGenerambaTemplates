@@ -1,14 +1,7 @@
 {% include 'header' %}
 
-#import <Foundation/Foundation.h>
+#import "MVZTableViewCellModelProtocol.h"
 
-@class RACCommand;
-
-@protocol {{ prefix }}{{ module_info.name }}ModelProtocol <NSObject>
-
-@property (nonatomic, readonly) BOOL selected;
-@property (nonatomic, readonly) double cellHeight;
-@property (nonatomic, readonly) RACCommand *rac_cellDidSelectCommand;
-@property (nonatomic, readonly) RACCommand *rac_cellDidDeselectCommand;
+@protocol {{ prefix }}{{ module_info.name }}ModelProtocol <MVZTableViewCellModelProtocol>
 
 @end
