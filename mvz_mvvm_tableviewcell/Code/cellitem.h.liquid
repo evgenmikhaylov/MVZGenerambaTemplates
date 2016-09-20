@@ -2,10 +2,10 @@
 
 #import <RSBTableViewManager/RSBTableViewManager.h>
 
-@protocol {{ prefix }}{{ module_info.name }}TableViewCellModelProtocol;
+@protocol {{ prefix }}{{ module_info.name }}ModelProtocol;
 
-@interface {{ prefix }}{{ module_info.name }}TableViewCellItem : RSBTableViewCellItem
+@interface {{ prefix }}{{ module_info.name }}Item : RSBTableViewCellItem
 
-@property (nonatomic) id<{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol> cellModel;
+@property (nonatomic) id<{{ prefix }}{{ module_info.name }}ModelProtocol> cellModel;
 
 @end

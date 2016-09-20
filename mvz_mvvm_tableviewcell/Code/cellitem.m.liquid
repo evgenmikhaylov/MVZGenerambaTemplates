@@ -1,34 +1,34 @@
 {% include 'header' %}
 
-#import "{{ prefix }}{{ module_info.name }}TableViewCellItem.h"
+#import "{{ prefix }}{{ module_info.name }}Item.h"
 
-#import "{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol.h"
-#import "{{ prefix }}{{ module_info.name }}TableViewCell.h"
+#import "{{ prefix }}{{ module_info.name }}ModelProtocol.h"
+#import "{{ prefix }}{{ module_info.name }}.h"
 
 #import "ReactiveCocoa+Extension.h"
 #import "RACChannel+Extension.h"
 
-@interface {{ prefix }}{{ module_info.name }}TableViewCellItem ()
+@interface {{ prefix }}{{ module_info.name }}Item ()
 
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic) NSIndexPath *indexPath;
 
 @end
 
-@implementation {{ prefix }}{{ module_info.name }}TableViewCellItem
+@implementation {{ prefix }}{{ module_info.name }}Item
 
 #pragma mark - Setters/Getters
 
-- (void)setCellModel:(id<{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol>)cellModel {
+- (void)setCellModel:(id<{{ prefix }}{{ module_info.name }}ModelProtocol>)cellModel {
     _cellModel = cellModel;
     [self bindCellModel];
 }
 
-- ({{ prefix }}{{ module_info.name }}TableViewCell *)cell {
+- ({{ prefix }}{{ module_info.name }} *)cell {
     if (!self.tableView || !self.indexPath) {
         return nil;
     }
-    {{ prefix }}{{ module_info.name }}TableViewCell *cell = (id)[self.tableView cellForRowAtIndexPath:self.indexPath];
+    {{ prefix }}{{ module_info.name }} *cell = (id)[self.tableView cellForRowAtIndexPath:self.indexPath];
     return cell;
 }
 
@@ -63,9 +63,9 @@
     RACChannelTwoWayBinding(firstChannelTerminal, secondChannelTerminal);
 }
 
-#pragma mark - RSBTableViewCellItemProtocol
+#pragma mark - RSBItemProtocol
 
-- (void)configureCell:({{ prefix }}{{ module_info.name }}TableViewCell *)cell inTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:({{ prefix }}{{ module_info.name }} *)cell inTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
     [super configureCell:(id)cell inTableView:tableView atIndexPath:indexPath];
     self.tableView = tableView;
     self.indexPath = indexPath;
@@ -79,8 +79,8 @@
     return self.cellModel.cellHeight;
 }
 
-- (Class)registeredTableViewCellClass {
-    return [{{ prefix }}{{ module_info.name }}TableViewCell class];
+- (Class)registeredClass {
+    return [{{ prefix }}{{ module_info.name }} class];
 }
 
 - (void)didSelectInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
