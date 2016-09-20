@@ -1,0 +1,102 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}TableViewCellItem.h"
+
+#import "{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol.h"
+#import "{{ prefix }}{{ module_info.name }}TableViewCell.h"
+
+#import "ReactiveCocoa+Extension.h"
+#import "RACChannel+Extension.h"
+
+@interface {{ prefix }}{{ module_info.name }}TableViewCellItem ()
+
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic) NSIndexPath *indexPath;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}TableViewCellItem
+
+#pragma mark - Setters/Getters
+
+- (void)setCellModel:(id<{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol>)cellModel {
+    _cellModel = cellModel;
+    [self bindCellModel];
+}
+
+- ({{ prefix }}{{ module_info.name }}TableViewCell *)cell {
+    if (!self.tableView || !self.indexPath) {
+        return nil;
+    }
+    {{ prefix }}{{ module_info.name }}TableViewCell *cell = (id)[self.tableView cellForRowAtIndexPath:self.indexPath];
+    return cell;
+}
+
+#pragma mark - Binding
+
+- (void)bindCellModel {
+
+	[self bindCellModelSelection];
+}
+
+- (void)bindCellModelSelection {
+    @weakify(self)
+    RACSignal *didSelectSignal = [[[self rac_signalForSelector:@selector(didSelectInTableView:atIndexPath:)] map:^id(id value) {
+	    @strongify(self)
+	    return @(!self.cellModel.selected);
+    }] takeUntil:self.rac_willDeallocSignal];
+    RACSignal *didDeselectSignal = [[[self rac_signalForSelector:@selector(didDeselectInTableView:atIndexPath:)] map:^id(id value) {
+        return @NO;
+    }] takeUntil:self.rac_willDeallocSignal];
+    RACChannelTerminal *firstChannelTerminal = RACChannelTo(self.cellModel, selected);
+    RACChannelTerminal *secondChannelTerminal =
+    [RACChannel channelTerminalWithSignal:[RACSignal merge:@[didSelectSignal, didDeselectSignal]] nextBlock:^(id x) {
+        @strongify(self)
+        if (self.tableView && self.indexPath) {
+            if ([x boolValue]) {
+                [self.tableView selectRowAtIndexPath:self.indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            } else {
+                [self.tableView deselectRowAtIndexPath:self.indexPath animated:NO];
+            }
+        }
+    }];
+    RACChannelTwoWayBinding(firstChannelTerminal, secondChannelTerminal);
+}
+
+#pragma mark - RSBTableViewCellItemProtocol
+
+- (void)configureCell:({{ prefix }}{{ module_info.name }}TableViewCell *)cell inTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    [super configureCell:(id)cell inTableView:tableView atIndexPath:indexPath];
+    self.tableView = tableView;
+    self.indexPath = indexPath;
+    if (self.cellModel.selected) {
+        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    cell.cellModel = self.cellModel;
+}
+
+- (CGFloat)heightInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    return self.cellModel.cellHeight;
+}
+
+- (Class)registeredTableViewCellClass {
+    return [{{ prefix }}{{ module_info.name }}TableViewCell class];
+}
+
+- (void)didSelectInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    if (self.cellModel.selected) {
+        if (tableView.allowsMultipleSelection) {
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+            [[self.cellModel rac_cellDidDeselectCommand] execute:self.cellModel];
+        }
+    }
+    else {
+        [[self.cellModel rac_cellDidSelectCommand] execute:self.cellModel];
+    }
+}
+
+- (void)didDeselectInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    [[self.cellModel rac_cellDidDeselectCommand] execute:self.cellModel];
+}
+
+@end

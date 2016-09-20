@@ -1,0 +1,15 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol.h"
+#import <Foundation/Foundation.h>
+
+@class RACCommand;
+
+@interface {{ prefix }}{{ module_info.name }}TableViewCellModel : NSObject <{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol>
+
+@property (nonatomic) BOOL selected;
+@property (nonatomic) double cellHeight;
+@property (nonatomic) RACCommand *rac_cellDidSelectCommand;
+@property (nonatomic) RACCommand *rac_cellDidDeselectCommand;
+
+@end

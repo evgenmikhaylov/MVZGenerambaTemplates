@@ -1,0 +1,11 @@
+{% include 'header' %}
+
+#import <RSBTableViewManager/RSBTableViewManager.h>
+
+@protocol {{ prefix }}{{ module_info.name }}TableViewCellModelProtocol;
+
+@interface {{ prefix }}{{ module_info.name }}TableViewCellItem : RSBTableViewCellItem
+
+@property (nonatomic) id<{{ prefix }}{{ module_info.name }}TableViewCellModelProtocol> cellModel;
+
+@end

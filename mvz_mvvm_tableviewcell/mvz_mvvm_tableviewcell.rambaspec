@@ -1,0 +1,24 @@
+# Template information section
+name: "mvz_mvvm_tableviewcell"
+summary: "MVVM tableview cell template"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+# View
+- {name: TableViewCell.h, path: Code/cell.h.liquid}
+- {name: TableViewCell.m, path: Code/cell.m.liquid}
+- {name: TableViewCellItem.h, path: Code/cellitem.h.liquid}
+- {name: TableViewCellItem.m, path: Code/cellitem.m.liquid}
+
+# ViewModel
+- {name: CellModel/TableViewCellModelProtocol.h, path: Code/CellModel/cellmodel_protocol.h.liquid}
+- {name: CellModel/TableViewCellModel.h, path: Code/CellModel/cellmodel.h.liquid}
+- {name: CellModel/TableViewCellModel.m, path: Code/CellModel/cellmodel.m.liquid}
+
+# Template dependencies
+dependencies:
+- OCMock
