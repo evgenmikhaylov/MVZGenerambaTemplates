@@ -5,6 +5,6 @@
 
 @interface {{ prefix }}{{ module_info.name }}Item : MVZTableViewCellItem
 
-@property (nonatomic) id<{{ prefix }}{{ module_info.name }}ModelProtocol> cellModel;
+@property (nonatomic, weak) id<{{ prefix }}{{ module_info.name }}ModelProtocol> cellModel;
 
 @end
