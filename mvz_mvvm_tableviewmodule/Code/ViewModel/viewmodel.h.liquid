@@ -1,0 +1,12 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}ViewModelProtocol.h"
+#import <Foundation/Foundation.h>
+
+@protocol {{ prefix }}{{ module_info.name }}RouterProtocol;
+
+@interface {{ prefix }}{{ module_info.name }}ViewModel : NSObject <{{ prefix }}{{ module_info.name }}ViewModelProtocol>
+
+@property (nonatomic) id<{{ prefix }}{{ module_info.name }}RouterProtocol> router;
+
+@end

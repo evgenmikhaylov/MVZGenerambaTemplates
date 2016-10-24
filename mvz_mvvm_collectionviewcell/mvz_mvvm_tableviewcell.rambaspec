@@ -1,0 +1,24 @@
+# Template information section
+name: "mvz_mvvm_collectionviewcell"
+summary: "MVVM collectionview cell template"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+# View
+- {name: .h, path: Code/cell.h.liquid}
+- {name: .m, path: Code/cell.m.liquid}
+- {name: Item.h, path: Code/cellitem.h.liquid}
+- {name: Item.m, path: Code/cellitem.m.liquid}
+
+# ViewModel
+- {name: CellModel/ModelProtocol.h, path: Code/CellModel/cellmodel_protocol.h.liquid}
+- {name: CellModel/Model.h, path: Code/CellModel/cellmodel.h.liquid}
+- {name: CellModel/Model.m, path: Code/CellModel/cellmodel.m.liquid}
+
+# Template dependencies
+dependencies:
+- OCMock

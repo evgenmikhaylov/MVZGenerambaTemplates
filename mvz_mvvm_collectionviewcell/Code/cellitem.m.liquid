@@ -1,0 +1,38 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}Item.h"
+
+#import "{{ prefix }}{{ module_info.name }}ModelProtocol.h"
+#import "{{ prefix }}{{ module_info.name }}.h"
+
+@implementation {{ prefix }}{{ module_info.name }}Item
+
+#pragma mark - Setters/Getters
+
+@dynamic cellModel;
+
+#pragma mark - Binding
+
+- (void)bindCellModel {
+    [super bindCellModel];
+}
+
+#pragma mark - RSBCollectionViewCellItemProtocol
+
+- (void)configureCell:(SPCStoreCollectionViewCell *)cell
+          atIndexPath:(NSIndexPath *)indexPath
+     inCollectionView:(UICollectionView *)collectionView {
+    [super configureCell:cell atIndexPath:indexPath inCollectionView:collectionView];
+}
+
+- (CGSize)sizeForCollectionView:(UICollectionView *)collectionView
+                         layout:(UICollectionViewLayout *)collectionViewLayout
+                      indexPath:(NSIndexPath *)indexPath {
+    return CGSizeZero;
+}
+
+- (Class)registeredCollectionViewCellClass {
+    return [SPCStoreCollectionViewCell class];
+}
+
+@end

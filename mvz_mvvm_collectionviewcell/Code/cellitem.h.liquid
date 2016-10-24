@@ -1,0 +1,10 @@
+{% include 'header' %}
+
+#import "MVZCollectionViewCellItem.h"
+#import "{{ prefix }}{{ module_info.name }}ModelProtocol.h"
+
+@interface {{ prefix }}{{ module_info.name }}Item : MVZCollectionViewCellItem
+
+@property (nonatomic, weak) id<{{ prefix }}{{ module_info.name }}ModelProtocol> cellModel;
+
+@end

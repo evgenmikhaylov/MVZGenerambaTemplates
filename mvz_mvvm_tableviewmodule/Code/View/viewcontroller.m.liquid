@@ -1,0 +1,25 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+#import "{{ prefix }}{{ module_info.name }}ViewModelProtocol.h"
+
+@implementation {{ prefix }}{{ module_info.name }}ViewController
+
+#pragma mark - Lifecycle
+
+- (void)loadView {
+    [super loadView];
+    self.view = [[UIView alloc] init];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self bindViewModel];
+}
+
+#pragma mark - Binding
+
+- (void)bindViewModel {
+}
+
+@end

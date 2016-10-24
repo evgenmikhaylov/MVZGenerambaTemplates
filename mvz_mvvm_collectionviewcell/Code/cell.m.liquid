@@ -1,0 +1,14 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}.h"
+
+@implementation {{ prefix }}{{ module_info.name }}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {        
+    }
+    return self;
+}
+
+@end
