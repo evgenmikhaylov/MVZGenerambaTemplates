@@ -19,7 +19,9 @@
 
 #pragma mark - RSBCollectionViewCellItemProtocol
 
-- (void)configureCell:(SPCStoreCollectionViewCell *)cell
+
+
+- (void)configureCell:({{ prefix }}{{ module_info.name }} *)cell
           atIndexPath:(NSIndexPath *)indexPath
      inCollectionView:(UICollectionView *)collectionView {
     [super configureCell:cell atIndexPath:indexPath inCollectionView:collectionView];
@@ -32,7 +34,7 @@
 }
 
 - (Class)registeredCollectionViewCellClass {
-    return [SPCStoreCollectionViewCell class];
+    return [{{ prefix }}{{ module_info.name }} class];
 }
 
 @end
