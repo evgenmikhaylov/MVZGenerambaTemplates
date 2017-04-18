@@ -1,0 +1,13 @@
+# Template information section
+name: "mvz_mvvm_module_swift"
+summary: "MVVM swift module template"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+- {name: ModuleBuilder.swift, path: Code/ModuleBuilder.swift.liquid}
+- {name: ViewController.swift, path: Code/ViewController.swift.liquid}
+- {name: ViewModel.swift, path: Code/ViewModel.swift.liquid}
+- {name: Interactor.swift, path: Code/Interactor.swift.liquid}
