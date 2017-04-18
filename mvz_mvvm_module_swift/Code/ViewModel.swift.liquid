@@ -1,16 +1,22 @@
 {% include 'header' %}
 
+protocol {{ prefix }}{{ module_info.name }}ViewModelOutput: class {
+    func update()
+}
+
 final class {{ prefix }}{{ module_info.name }}ViewModel {
 
-    private let interactor: {{ prefix }}{{ module_info.name }}Interactor
+    private let interactor: {{ prefix }}{{ module_info.name }}
+    private unowned var output: RootViewModelOutput
     
 	// MARK: - Lifecycle
 
-    init(interactor: {{ prefix }}{{ module_info.name }}Interactor) {
+    init(interactor: {{ prefix }}{{ module_info.name }}Interactor, output: {{ prefix }}{{ module_info.name }}ViewModelOutput) {
         self.interactor = interactor
+       	self.output = output
     }
 
-    func didTriggerViewReadyEvent() {
-        
+    func viewDidLoad() {
+        output.update()
     }
 }
