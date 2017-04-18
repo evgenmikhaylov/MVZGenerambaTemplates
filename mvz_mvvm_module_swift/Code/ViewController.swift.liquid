@@ -4,12 +4,11 @@ import UIKit
 
 final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     
-    let viewModel: {{ prefix }}{{ module_info.name }}ViewModel
+    var viewModel: {{ prefix }}{{ module_info.name }}ViewModel
     
     // MARK: - Lifecycle
     
-    init(viewModel: {{ prefix }}{{ module_info.name }}ViewModel) {
-        self.viewModel = viewModel
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -19,6 +18,11 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.didTriggerViewReadyEvent()
+        viewModel.viewDidLoad()
+    }
+
+    // MARK: - {{ prefix }}{{ module_info.name }}ViewModelOutput
+    
+    func update() {
     }
 }
