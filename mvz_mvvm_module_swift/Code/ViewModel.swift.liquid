@@ -6,8 +6,8 @@ protocol {{ prefix }}{{ module_info.name }}ViewModelOutput: class {
 
 final class {{ prefix }}{{ module_info.name }}ViewModel {
 
-    private let interactor: {{ prefix }}{{ module_info.name }}
-    private unowned var output: RootViewModelOutput
+    private let interactor: {{ prefix }}{{ module_info.name }}Interactor
+    private unowned var output: {{ prefix }}{{ module_info.name }}ViewModelOutput
     
 	// MARK: - Lifecycle
 
