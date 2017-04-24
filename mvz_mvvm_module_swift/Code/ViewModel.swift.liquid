@@ -6,17 +6,18 @@ protocol {{ prefix }}{{ module_info.name }}ViewModelOutput: class {
 
 final class {{ prefix }}{{ module_info.name }}ViewModel {
 
+    weak var output: {{ prefix }}{{ module_info.name }}ViewModelOutput?
     private let interactor: {{ prefix }}{{ module_info.name }}Interactor
-    private unowned var output: {{ prefix }}{{ module_info.name }}ViewModelOutput
     
 	// MARK: - Lifecycle
 
-    init(interactor: {{ prefix }}{{ module_info.name }}Interactor, output: {{ prefix }}{{ module_info.name }}ViewModelOutput) {
+    init(interactor: {{ prefix }}{{ module_info.name }}Interactor) {
         self.interactor = interactor
-       	self.output = output
     }
 
     func viewDidLoad() {
-        output.update()
+        if let output = output {
+            output.update()
+        }
     }
 }
