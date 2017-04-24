@@ -1,0 +1,9 @@
+name: "mvz_service_swift"
+summary: "Service"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+code_files:
+- {name: ServiceProtocol.swift, path: Code/service_protocol.swift.liquid}
+- {name: Service.swift, path: Code/service.swift.liquid}
