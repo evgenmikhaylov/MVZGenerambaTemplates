@@ -1,11 +1,15 @@
 {% include 'header' %}
 
 protocol {{ prefix }}{{ module_info.name }}ViewModelOutput: class {
-    func update()
+}
+
+protocol {{ prefix }}{{ module_info.name }}ViewModelDelegate: class {
+    func update(animated: Bool)
 }
 
 final class {{ prefix }}{{ module_info.name }}ViewModel {
 
+    weak var delegate: {{ prefix }}{{ module_info.name }}ViewModelDelegate?
     weak var output: {{ prefix }}{{ module_info.name }}ViewModelOutput?
     private let interactor: {{ prefix }}{{ module_info.name }}Interactor
     
@@ -16,8 +20,8 @@ final class {{ prefix }}{{ module_info.name }}ViewModel {
     }
 
     func viewDidLoad() {
-        if let output = output {
-            output.update()
+        if let delegate = delegate {
+            delegate.update(animated: false)
         }
     }
 }

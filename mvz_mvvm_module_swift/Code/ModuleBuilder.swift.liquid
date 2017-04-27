@@ -2,11 +2,12 @@
 
 enum {{ prefix }}{{ module_info.name }}ModuleBuilder {
     
-    static func module() -> {{ prefix }}{{ module_info.name }}ViewController {
+    static func module(output: {{ prefix }}{{ module_info.name }}ViewModelOutput) -> {{ prefix }}{{ module_info.name }}ViewController {
         let interactor = {{ prefix }}{{ module_info.name }}Interactor()
         let viewModel = {{ prefix }}{{ module_info.name }}ViewModel(interactor: interactor)
         let viewController = {{ prefix }}{{ module_info.name }}ViewController(viewModel: viewModel)        
-        viewModel.output = viewController
+        viewModel.delegate = viewController
+        viewModel.output = output
         return viewController
     }
 }

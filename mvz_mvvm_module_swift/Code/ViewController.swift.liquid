@@ -2,7 +2,7 @@
 
 import UIKit
 
-final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController, {{ prefix }}{{ module_info.name }}ViewModelOutput {
+final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController, {{ prefix }}{{ module_info.name }}ViewModelDelegate {
     
     var viewModel: {{ prefix }}{{ module_info.name }}ViewModel
     
@@ -22,8 +22,9 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController, 
         viewModel.viewDidLoad()
     }
 
-    // MARK: - {{ prefix }}{{ module_info.name }}ViewModelOutput
+    // MARK: - {{ prefix }}{{ module_info.name }}ViewModelDelegate
     
-    func update() {
+    func update(animated: Bool) {
     }
+    
 }
