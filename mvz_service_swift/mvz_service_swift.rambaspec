@@ -5,5 +5,5 @@ version: "1.0.0"
 license: "MIT"
 
 code_files:
-- {name: ServiceProtocol.swift, path: Code/service_protocol.swift.liquid}
-- {name: Service.swift, path: Code/service.swift.liquid}
+- {name: Protocol.swift, path: Code/service_protocol.swift.liquid}
+- {name: .swift, path: Code/service.swift.liquid}
