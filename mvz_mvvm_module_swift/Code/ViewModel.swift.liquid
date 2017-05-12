@@ -4,10 +4,10 @@ protocol {{ prefix }}{{ module_info.name }}ViewModelDelegate: class {
     func update(animated: Bool)
 }
 
-final class {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.name }}Input {
+final class {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.name }}ModuleInput {
 
     weak var delegate: {{ prefix }}{{ module_info.name }}ViewModelDelegate?
-    weak var output: {{ prefix }}{{ module_info.name }}ViewModuleOutput?
+    weak var output: {{ prefix }}{{ module_info.name }}ModuleOutput?
     private let interactor: {{ prefix }}{{ module_info.name }}Interactor
 
 	  // MARK: - Lifecycle
