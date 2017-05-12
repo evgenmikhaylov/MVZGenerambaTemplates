@@ -1,27 +1,24 @@
 {% include 'header' %}
 
-protocol {{ prefix }}{{ module_info.name }}ViewModelOutput: class {
-}
-
 protocol {{ prefix }}{{ module_info.name }}ViewModelDelegate: class {
     func update(animated: Bool)
 }
 
-final class {{ prefix }}{{ module_info.name }}ViewModel {
+final class {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.name }}Input {
 
     weak var delegate: {{ prefix }}{{ module_info.name }}ViewModelDelegate?
-    weak var output: {{ prefix }}{{ module_info.name }}ViewModelOutput?
+    weak var output: {{ prefix }}{{ module_info.name }}ViewModuleOutput?
     private let interactor: {{ prefix }}{{ module_info.name }}Interactor
-    
-	// MARK: - Lifecycle
+
+	  // MARK: - Lifecycle
 
     init(interactor: {{ prefix }}{{ module_info.name }}Interactor) {
         self.interactor = interactor
     }
 
     func viewDidLoad() {
-        if let delegate = delegate {
-            delegate.update(animated: false)
-        }
+        delegate?.update(animated: false)
     }
+
+    // MARK: - {{ prefix }}{{ module_info.name }}Input
 }
