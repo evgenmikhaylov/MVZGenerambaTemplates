@@ -21,14 +21,6 @@ final class {{ prefix }}{{ module_info.name }}Module {
             return viewModel.output
         }
     }
-    var datasource: {{ prefix }}{{ module_info.name }}ModuleOutput? {
-        set {
-            viewModel.output = newValue
-        }
-        get {
-            return viewModel.output
-        }
-    }
     var view: UIViewController {
         return viewController
     }
