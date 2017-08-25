@@ -8,8 +8,6 @@ protocol {{ prefix }}{{ module_info.name }}ModuleOutput: class {
 
 final class {{ prefix }}{{ module_info.name }}Module {
 
-    public typealias Dependencies = {{ prefix }}{{ module_info.name }}Interactor.Dependencies
-
     var input: {{ prefix }}{{ module_info.name }}ModuleInput {
         return viewModel
     }
@@ -25,8 +23,7 @@ final class {{ prefix }}{{ module_info.name }}Module {
     private let viewModel: {{ prefix }}{{ module_info.name }}ViewModel
 
     init() {
-        let interactor = {{ prefix }}{{ module_info.name }}Interactor(dependencies: <#dependencies#>)
-        viewModel = {{ prefix }}{{ module_info.name }}ViewModel(interactor: interactor)
+        viewModel = {{ prefix }}{{ module_info.name }}ViewModel()
         viewController = {{ prefix }}{{ module_info.name }}ViewController(viewModel: viewModel)
         viewModel.delegate = viewController
     }

@@ -13,7 +13,7 @@ final class {{ prefix }}{{ module_info.name }}ViewModel {
 
 	// MARK: - Lifecycle
 
-    init(interactor: {{ prefix }}{{ module_info.name }}Interactor) {
+    init(interactor: {{ prefix }}{{ module_info.name }}Interactor = {{ prefix }}{{ module_info.name }}Interactor()) {
         self.interactor = interactor
     }
 
@@ -26,5 +26,4 @@ final class {{ prefix }}{{ module_info.name }}ViewModel {
 // MARK: - {{ prefix }}{{ module_info.name }}Input
 
 extension {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.name }}ModuleInput {
-
 }
