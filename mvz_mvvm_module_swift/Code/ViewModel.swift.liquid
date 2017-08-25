@@ -4,7 +4,7 @@ protocol {{ prefix }}{{ module_info.name }}ViewModelDelegate: class {
     func update(animated: Bool)
 }
 
-final class {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.name }}ModuleInput {
+final class {{ prefix }}{{ module_info.name }}ViewModel {
 
     weak var delegate: {{ prefix }}{{ module_info.name }}ViewModelDelegate?
     weak var output: {{ prefix }}{{ module_info.name }}ModuleOutput?
@@ -20,5 +20,10 @@ final class {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_i
         delegate?.update(animated: false)
     }
 
-    // MARK: - {{ prefix }}{{ module_info.name }}Input
+}
+
+// MARK: - {{ prefix }}{{ module_info.name }}Input
+
+extension {{ prefix }}{{ module_info.name }}ViewModel:{{ prefix }}{{ module_info.name }}ModuleInput {
+    
 }

@@ -2,7 +2,7 @@
 
 import UIKit
 
-final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController, {{ prefix }}{{ module_info.name }}ViewModelDelegate {
+final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
 
     var viewModel: {{ prefix }}{{ module_info.name }}ViewModel
 
@@ -22,10 +22,16 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController, 
         viewModel.viewDidLoad()
     }
 
+    // MARK: - Layout
+
     override func viewDidLayoutSubviews() {
     }
 
-    // MARK: - {{ prefix }}{{ module_info.name }}ViewModelDelegate
+}
+
+// MARK: - {{ prefix }}{{ module_info.name }}ViewModelDelegate
+
+extension {{ prefix }}{{ module_info.name }}ViewController: {{ prefix }}{{ module_info.name }}ViewModelDelegate {
 
     func update(animated: Bool) {
     }

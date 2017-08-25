@@ -21,14 +21,11 @@ final class {{ prefix }}{{ module_info.name }}Module {
             return viewModel.output
         }
     }
-    var view: UIViewController {
-        return viewController
-    }
-    private let viewController: {{ prefix }}{{ module_info.name }}ViewController
+    let viewController: {{ prefix }}{{ module_info.name }}ViewController
     private let viewModel: {{ prefix }}{{ module_info.name }}ViewModel
 
-    init(dependencies: Dependencies) {
-        let interactor = {{ prefix }}{{ module_info.name }}Interactor(dependencies: dependencies)
+    init() {
+        let interactor = {{ prefix }}{{ module_info.name }}Interactor(dependencies: <#dependencies#>)
         viewModel = {{ prefix }}{{ module_info.name }}ViewModel(interactor: interactor)
         viewController = {{ prefix }}{{ module_info.name }}ViewController(viewModel: viewModel)
         viewModel.delegate = viewController
