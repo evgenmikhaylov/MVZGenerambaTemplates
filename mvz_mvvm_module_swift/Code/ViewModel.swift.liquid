@@ -8,9 +8,10 @@ final class {{ prefix }}{{ module_info.name }}ViewModel {
 
     weak var delegate: {{ prefix }}{{ module_info.name }}ViewModelDelegate?
     weak var output: {{ prefix }}{{ module_info.name }}ModuleOutput?
+
     private let interactor: {{ prefix }}{{ module_info.name }}Interactor
 
-	  // MARK: - Lifecycle
+	// MARK: - Lifecycle
 
     init(interactor: {{ prefix }}{{ module_info.name }}Interactor) {
         self.interactor = interactor
@@ -24,6 +25,6 @@ final class {{ prefix }}{{ module_info.name }}ViewModel {
 
 // MARK: - {{ prefix }}{{ module_info.name }}Input
 
-extension {{ prefix }}{{ module_info.name }}ViewModel:{{ prefix }}{{ module_info.name }}ModuleInput {
-    
+extension {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.name }}ModuleInput {
+
 }
