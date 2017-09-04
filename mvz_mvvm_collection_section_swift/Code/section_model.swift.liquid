@@ -5,7 +5,7 @@ import VMCollection
 
 class {{ prefix }}{{ module_info.name }}Model: VMCollectionViewSectionModel {
     
-    var sectionCellModels = [{{ prefix }}{{ module_info.name }}CellModel]() {
+    var sectionCellModels = [VMCollectionViewCellModel]() {
         didSet {
             cellModels = sectionCellModels
         }
