@@ -1,0 +1,15 @@
+{% include 'header' %}
+
+import Foundation
+import VMCollection
+
+final class {{ prefix }}{{ module_info.name }}ViewSectionItemsFactory: VMCollectionViewSectionItemsFactoryProtocol {
+
+    public func sectionItems(for sectionModels: [VMCollectionViewSectionModel]) -> [VMCollectionViewSectionItemProtocol] {
+        let sectionItems  = sectionModels.flatMap { sectionModel -> VMCollectionViewSectionItemProtocol? in
+            return nil
+        }
+        return sectionItems
+    }
+    
+}
