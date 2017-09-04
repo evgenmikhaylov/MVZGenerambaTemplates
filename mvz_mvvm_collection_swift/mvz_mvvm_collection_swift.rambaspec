@@ -5,6 +5,6 @@ version: "1.0.0"
 license: "MIT"
 
 code_files:
-- {name: SectionFactories/ViewSectionItemsFactory.swift, path: Code/SectionFactories/section_items_factory.swift.liquid}
-- {name: SectionFactories/ViewSectionModelsFactory.swift, path: Code/SectionFactories/section_models_factory.swift.liquid}
+- {name: SectionFactories/SectionItemsFactory.swift, path: Code/SectionFactories/section_items_factory.swift.liquid}
+- {name: SectionFactories/SectionModelsFactory.swift, path: Code/SectionFactories/section_models_factory.swift.liquid}
 - {name: Sections}

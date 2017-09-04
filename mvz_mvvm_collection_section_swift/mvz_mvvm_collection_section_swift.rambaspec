@@ -5,6 +5,8 @@ version: "1.0.0"
 license: "MIT"
 
 code_files:
-- {name: SectionFactories/ViewSectionItemsFactory.swift, path: Code/SectionFactories/section_items_factory.swift.liquid}
-- {name: SectionFactories/ViewSectionModelsFactory.swift, path: Code/SectionFactories/section_models_factory.swift.liquid}
-- {name: Sections}
+- {name: SectionItem.swift, path: Code/section_item.swift.liquid}
+- {name: SectionModel.swift, path: Code/section_model.swift.liquid}
+- {name: CellFactories/CellItemsFactory.swift, path: Code/cell_items_factory.swift.liquid}
+- {name: CellFactories/CellModelsFactory.swift, path: Code/cell_models_factory.swift.liquid}
+- {name: Cells}

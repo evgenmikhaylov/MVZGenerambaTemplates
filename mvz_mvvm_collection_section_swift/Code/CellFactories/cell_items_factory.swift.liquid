@@ -1,0 +1,15 @@
+{% include 'header' %}
+
+import Foundation
+import VMCollection
+
+final class {{ prefix }}{{ module_info.name }}CellItemsFactory: VMCollectionViewCellItemsFactoryProtocol {
+    
+    func cellItemsForCellModels(_ cellModels: [VMCollectionViewCellModel]) -> [VMCollectionViewCellItemProtocol] {
+        let cellItems  = cellModels.flatMap { cellModel -> VMCollectionViewCellItemProtocol? in
+            return nil
+        }
+        return cellItems
+    }
+
+}
