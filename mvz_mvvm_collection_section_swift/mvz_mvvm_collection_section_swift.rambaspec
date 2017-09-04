@@ -7,6 +7,6 @@ license: "MIT"
 code_files:
 - {name: SectionItem.swift, path: Code/section_item.swift.liquid}
 - {name: SectionModel.swift, path: Code/section_model.swift.liquid}
-- {name: CellFactories/CellItemsFactory.swift, path: Code/cell_items_factory.swift.liquid}
-- {name: CellFactories/CellModelsFactory.swift, path: Code/cell_models_factory.swift.liquid}
+- {name: CellFactories/CellItemsFactory.swift, path: Code/CellFactories/cell_items_factory.swift.liquid}
+- {name: CellFactories/CellModelsFactory.swift, path: Code/CellFactories/cell_models_factory.swift.liquid}
 - {name: Cells}
