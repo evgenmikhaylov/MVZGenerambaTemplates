@@ -1,0 +1,12 @@
+# Template information section
+name: "mvz_mvvm_collection_swift"
+summary: "MVVM swift VMCollection template"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+- {name: ViewSectionItemsFactory.swift, path: Code/section_items_factory.swift.liquid}
+- {name: Sections}
