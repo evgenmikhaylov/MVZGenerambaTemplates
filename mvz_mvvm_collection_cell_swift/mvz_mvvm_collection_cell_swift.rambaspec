@@ -1,0 +1,10 @@
+name: "mvz_mvvm_collection_cell_swift"
+summary: "MVVM swift VMCollection cell template"
+author: "Evgeny Mikhaylov"
+version: "1.0.0"
+license: "MIT"
+
+code_files:
+- {name: .swift, path: Code/cell.swift.liquid}
+- {name: Item.swift, path: Code/cell_item.swift.liquid}
+- {name: Model.swift, path: Code/cell_model.swift.liquid}

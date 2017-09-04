@@ -1,0 +1,35 @@
+{% include 'header' %}
+
+import Foundation
+import VMCollection
+import CollectionViewTools
+
+final class {{ prefix }}{{ module_info.name }}Item: VMCollectionViewCellItem {
+
+    var cellModel: {{ prefix }}{{ module_info.name }}Model
+    
+    init(cellModel: {{ prefix }}{{ module_info.name }}Model) {
+        self.cellModel = cellModel
+        super.init()
+    }
+
+    // MARK: - VMCollectionViewCellItemProtocol
+    
+    override var itemCellModel: VMCollectionViewCellModel {
+        return cellModel
+    }
+    
+    override var reuseType: ReuseType {
+        return .byClass({{ prefix }}{{ module_info.name }}.self, identifier: String(describing: self))
+    }
+    
+    override func configuredCell(for collectionView: UICollectionView?, at indexPath: IndexPath?) -> UICollectionViewCell {
+        let cell: {{ prefix }}{{ module_info.name }} = dequeuedCell(for: collectionView, at: indexPath)
+        return cell
+    }
+        
+    override func size(for collectionView: UICollectionView, with layout: UICollectionViewLayout, at indexPath: IndexPath) -> CGSize {
+        return collectionView.frame.size
+    }
+
+}
