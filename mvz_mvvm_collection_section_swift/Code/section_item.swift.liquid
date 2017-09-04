@@ -3,12 +3,12 @@
 import Foundation
 import VMCollection
 
-final class {{ prefix }}{{ module_info.name }}SectionItem: VMCollectionViewSectionItem {
+final class {{ prefix }}{{ module_info.name }}Item: VMCollectionViewSectionItem {
     
     private var cellItemsFactory: {{ prefix }}{{ module_info.name }}CellItemsFactory
-    private var sectionModel: {{ prefix }}{{ module_info.name }}SectionModel
+    private var sectionModel: {{ prefix }}{{ module_info.name }}Model
     
-    init(cellItemsFactory: {{ prefix }}{{ module_info.name }}CellItemsFactory, sectionModel: {{ prefix }}{{ module_info.name }}SectionModel) {
+    init(cellItemsFactory: {{ prefix }}{{ module_info.name }}CellItemsFactory, sectionModel: {{ prefix }}{{ module_info.name }}Model) {
         self.cellItemsFactory = cellItemsFactory
         self.sectionModel = sectionModel
         super.init()
