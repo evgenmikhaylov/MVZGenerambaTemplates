@@ -1,6 +1,7 @@
 {% include 'header' %}
 
 protocol {{ prefix }}{{ module_info.name }}ViewModelDelegate: class {
+    
     func update(animated: Bool)
 }
 
@@ -10,12 +11,16 @@ final class {{ prefix }}{{ module_info.name }}ViewModel {
     weak var output: {{ prefix }}{{ module_info.name }}ModuleOutput?
 
     private let interactor: {{ prefix }}{{ module_info.name }}Interactor
+    private let router: {{ prefix }}{{ module_info.name }}Router
 
 	// MARK: - Lifecycle
 
-    init(interactor: {{ prefix }}{{ module_info.name }}Interactor = {{ prefix }}{{ module_info.name }}Interactor()) {
+    init(interactor: {{ prefix }}{{ module_info.name }}Interactor, router: {{ prefix }}{{ module_info.name }}Router) {
         self.interactor = interactor
+        self.router = router
     }
+
+    // MARK: - Events
 
     func viewDidLoad() {
         delegate?.update(animated: false)

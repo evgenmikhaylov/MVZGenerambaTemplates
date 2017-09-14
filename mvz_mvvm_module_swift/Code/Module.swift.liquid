@@ -20,12 +20,16 @@ final class {{ prefix }}{{ module_info.name }}Module {
         }
     }
     let viewController: {{ prefix }}{{ module_info.name }}ViewController
+    
     private let viewModel: {{ prefix }}{{ module_info.name }}ViewModel
 
     init() {
-        viewModel = {{ prefix }}{{ module_info.name }}ViewModel()
+        let interactor = {{ prefix }}{{ module_info.name }}Interactor()
+        let router = {{ prefix }}{{ module_info.name }}Router()
+        viewModel = {{ prefix }}{{ module_info.name }}ViewModel(interactor: interactor, router: router)
         viewController = {{ prefix }}{{ module_info.name }}ViewController(viewModel: viewModel)
         viewModel.delegate = viewController
+        router.set(viewController)
     }
 
 }
