@@ -10,5 +10,4 @@ code_files:
 - {name: Module.swift, path: Code/Module.swift.liquid}
 - {name: ViewController.swift, path: Code/ViewController.swift.liquid}
 - {name: ViewModel.swift, path: Code/ViewModel.swift.liquid}
-- {name: Interactor.swift, path: Code/Interactor.swift.liquid}
 - {name: Router.swift, path: Code/Router.swift.liquid}

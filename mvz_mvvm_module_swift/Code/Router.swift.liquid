@@ -5,8 +5,10 @@ import Foundation
 final class {{ prefix }}{{ module_info.name }}Router {
 
     private weak var viewController: {{ prefix }}{{ module_info.name }}ViewController?
+    private weak var viewModel: {{ prefix }}{{ module_info.name }}ViewModel?
 
-    func set(_ viewController: {{ prefix }}{{ module_info.name }}ViewController) {
+    func set(viewController: {{ prefix }}{{ module_info.name }}ViewController, viewModel: {{ prefix }}{{ module_info.name }}ViewModel) {
         self.viewController = viewController
+        self.viewModel = viewModel
     }
 }

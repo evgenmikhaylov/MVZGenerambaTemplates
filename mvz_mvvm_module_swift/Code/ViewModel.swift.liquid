@@ -7,16 +7,16 @@ protocol {{ prefix }}{{ module_info.name }}ViewModelDelegate: class {
 
 final class {{ prefix }}{{ module_info.name }}ViewModel {
 
+    typealias Dependencies = Any
+
     weak var delegate: {{ prefix }}{{ module_info.name }}ViewModelDelegate?
     weak var output: {{ prefix }}{{ module_info.name }}ModuleOutput?
 
-    private let interactor: {{ prefix }}{{ module_info.name }}Interactor
+    private let dependencies: Dependencies    
     private let router: {{ prefix }}{{ module_info.name }}Router
 
-	// MARK: - Lifecycle
-
-    init(interactor: {{ prefix }}{{ module_info.name }}Interactor, router: {{ prefix }}{{ module_info.name }}Router) {
-        self.interactor = interactor
+    init(dependencies: Dependencies, router: {{ prefix }}{{ module_info.name }}Router) {
+        self.dependencies = dependencies
         self.router = router
     }
 
@@ -25,7 +25,6 @@ final class {{ prefix }}{{ module_info.name }}ViewModel {
     func viewDidLoad() {
         delegate?.update(animated: false)
     }
-
 }
 
 // MARK: - {{ prefix }}{{ module_info.name }}Input

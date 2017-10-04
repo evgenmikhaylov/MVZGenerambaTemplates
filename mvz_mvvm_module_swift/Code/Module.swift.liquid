@@ -24,12 +24,11 @@ final class {{ prefix }}{{ module_info.name }}Module {
     private let viewModel: {{ prefix }}{{ module_info.name }}ViewModel
 
     init() {
-        let interactor = {{ prefix }}{{ module_info.name }}Interactor()
+        let dependencies = [Any]()
         let router = {{ prefix }}{{ module_info.name }}Router()
-        viewModel = {{ prefix }}{{ module_info.name }}ViewModel(interactor: interactor, router: router)
+        viewModel = {{ prefix }}{{ module_info.name }}ViewModel(dependencies: dependencies, router: router)
         viewController = {{ prefix }}{{ module_info.name }}ViewController(viewModel: viewModel)
         viewModel.delegate = viewController
-        router.set(viewController)
+        router.set(viewController: viewController, viewModel: viewModel)
     }
-
 }
